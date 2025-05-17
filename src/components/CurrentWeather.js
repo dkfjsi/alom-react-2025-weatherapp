@@ -8,10 +8,20 @@ import { getWeatherDescription } from "../utils/weather";
 
 const CurrentWeather = ({ weatherData, isLoading }) => {
   if (isLoading) {
-    return <div>채워주세요</div>;
+    return <div>로딩 중...</div>;
   }
+  const lastIndex = weatherData.hourly.time.length - 1;
 
-  return <div>채워주세요</div>;
+  const temperature = weatherData.hourly.temperature_2m[lastIndex];
+  const weatherCode = weatherData.hourly.weather_code[lastIndex];
+  const description = getWeatherDescription(weatherCode);
+
+  return (
+    <CurrentWeatherWrapper>
+      <Temperature>{temperature}°C</Temperature>
+      <WeatherCode>{description}</WeatherCode>
+    </CurrentWeatherWrapper>
+  ) 
 };
 
 export default CurrentWeather;
