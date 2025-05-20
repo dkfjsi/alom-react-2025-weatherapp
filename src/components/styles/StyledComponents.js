@@ -43,6 +43,9 @@ export const HourlyItem = styled.div`
   color: white;
   padding: 10px;
   min-width: 100px;
+  font-size: 14px;
+  text-align: center;
+  word-break: keep-all;
 `;
 
 export const DailyForecastWrapper = styled.div`
